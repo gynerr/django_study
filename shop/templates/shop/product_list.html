@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Страница товаров</h1>
+{% for product in products %}
+    <p>{{ product.title }}</p>
+    <p>{{ product.description }}</p>
+    <p>Купить за {{ product.price }} руб.</p>
+    <p>Купить в {% for shop in product.shop_set.all %}
+        <a href="{% url 'buy_product' shop.id product.id %}" >{{ shop }}</a>
+        {% endfor %}</p>
+{% endfor %}
+</body>
+</html>
