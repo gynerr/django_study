@@ -7,5 +7,5 @@ urlpatterns = [
     path('personal_account/', PersonalAccount, name='personal_account'),
     path('top_up/', TopUp, name='top_up'),
     path('buy_product/<int:shop_id>/<int:product_id>/', BuyProduct, name='buy_product'),
-    path('auth/', AuthView, name='auth_page')
+    path('login/', AuthView, name='login')
 ]

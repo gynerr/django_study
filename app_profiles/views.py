@@ -1,4 +1,5 @@
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 # Create your views here.
@@ -26,7 +27,7 @@ def RegisterView(request):
     form = UserRegisterForm()
     return render(request, 'app_profiles/register_page.html', {'form': form})
 
-
+@login_required
 def PersonalAccount(request):
     form = AuthForm()
     return render(request, 'app_profiles/personal_account.html', {'form': form})
@@ -57,7 +58,7 @@ def AuthView(request):
             if user:
                 if user.is_active:
                     login(request, user)
-                    return redirect(reverse('personal_account'))
+                    return redirect(request.GET.get('next', '/'))
                 else:
                     return HttpResponse('Пользователь не активен')
             else:
@@ -66,3 +67,5 @@ def AuthView(request):
             return HttpResponse('Проверьте правильность заполнения формы')
     form = AuthForm()
     return render(request, 'app_profiles/auth_page.html', {'form': form})
+
+

@@ -12,7 +12,6 @@ class UserRegisterForm(UserCreationForm):
         model = User
         fields = ['username', 'password1', 'password2', 'first_name', 'last_name', 'date_of_birthday']
 
-
 class AuthForm(forms.Form):
     username = forms.CharField(max_length=20)
     password = forms.CharField(strip=False, widget=forms.PasswordInput())
