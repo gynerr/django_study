@@ -14,11 +14,11 @@
     <div class="personal-acc-text">Ваш баланс составляет: {{ user.profile.balance }} рублей</div>
     <div class="personal-acc-text">Ваш статус: {{ user.profile.status }}</div>
     <div class="personal-acc-text">Пополнить баланс:</div>
-        <form class="personal-acc-form" action="{% url 'top_up' %}" method="post">
-            {% csrf_token %}
-            <input type="text" name="count">
-            <button type="submit">Пополнить</button>
-        </form>
+    <form class="personal-acc-form" action="{% url 'top_up' %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="count">
+        <button type="submit">Пополнить</button>
+    </form>
 
 
     <div style="margin: 20px">
