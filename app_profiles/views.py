@@ -4,6 +4,8 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 # Create your views here.
 from django.urls import reverse
+from django.utils.timezone import now
+
 from app_profiles.forms import UserRegisterForm, AuthForm
 from app_profiles.models import Profile
 
@@ -11,21 +13,26 @@ from django.db.models import F
 
 from app_profiles.utils import buy_select_product
 
+now()
+
+
 def RegisterView(request):
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
         if form.is_valid():
             user = form.save()
-            cd = form.cleaned_data
-            Profile.objects.create(user=user,
-                                   first_name=cd['first_name'],
-                                   last_name=cd['last_name'],
-                                   date_of_birthday=cd['date_of_birthday'])
-            user = authenticate(username=cd['username'], password=cd['password1'])
-            login(request, user)
-            return redirect(reverse('personal_account'))
+        cd = form.cleaned_data
+        Profile.objects.create(user=user,
+                               first_name=cd['first_name'],
+                               last_name=cd['last_name'],
+                               date_of_birthday=cd['date_of_birthday'])
+        user = authenticate(username=cd['username'], password=cd['password1'])
+        login(request, user)
+        return redirect(reverse('personal_account'))
+
     form = UserRegisterForm()
     return render(request, 'app_profiles/register_page.html', {'form': form})
+
 
 @login_required
 def PersonalAccount(request):
@@ -41,13 +48,15 @@ def TopUp(request):
         return redirect(reverse('personal_account'))
 
 
+al = 'abvababdfb'
+
+
 def BuyProduct(request, shop_id, product_id):
     try:
         buy_select_product(request, shop_id, product_id)
         return HttpResponse('Товар куплен')
     except Exception as err:
         return HttpResponse(err.args)
-
 
 
 def AuthView(request):
@@ -67,5 +76,4 @@ def AuthView(request):
             return HttpResponse('Проверьте правильность заполнения формы')
     form = AuthForm()
     return render(request, 'app_profiles/auth_page.html', {'form': form})
-
 

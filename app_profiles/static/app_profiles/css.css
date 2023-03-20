@@ -1,0 +1,137 @@
+@font-face {
+    font-family: 'Graphik LCG';
+    src: url('/static/fonts/GraphikLCG-Medium.woff2') format('woff2'),
+    url('/static/fonts/GraphikLCG-Medium.woff') format('woff');
+    font-display: swap;
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gilroy';
+    src: url('/static/fonts/Gilroy-Regular.woff2') format('woff2'),
+    url('/static/fonts/Gilroy-Regular.woff') format('woff');
+    font-display: swap;
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gilroy';
+    src: url('/static/fonts/Gilroy-ExtraBold.woff2') format('woff2'),
+    url('/static/fonts/Gilroy-ExtraBold.woff') format('woff');
+    font-display: swap;
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gilroy';
+    src: url('/static/fonts/Gilroy-Medium.woff2') format('woff2'),
+    url('/static/fonts/Gilroy-Medium.woff') format('woff');
+    font-display: swap;
+    font-weight: 500;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Gilroy', sans-serif;
+}
+
+.container {
+    background-color: aliceblue;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-title-text-center {
+    margin-bottom: 60px;
+    color: black;
+    font-size: 36px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    border: 3px gray;
+    border-radius: 20px;
+    background-color: wheat;
+    padding: 30px;
+    width: 500px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    width: 80%;
+    max-width: 500px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    width: 400px;
+}
+
+input[name="username"],
+input[name="count"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ccc;
+    background: wheat;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: relative;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.personal-acc-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+
+}
+
+.personal-acc-text {
+    display: inline-block;
+    font-size: 20px;
+    margin: 20px;
+}
+
+.personal-acc-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    margin-left: 50px;
+    width: 200px
+}

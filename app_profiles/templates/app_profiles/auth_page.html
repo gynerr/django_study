@@ -1,14 +1,21 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'app_profiles/css.css' %}">
     <title>Title</title>
 </head>
 <body>
-<form action="" method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Login</button>
-</form>
+<div class="container">
+    <h3 class="card-title-text-center">Авторизация</h3>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form.as_p }}
+            <button type="submit">Войти</button>
+        </div>
+    </form>
+</div>
 </body>
 </html>

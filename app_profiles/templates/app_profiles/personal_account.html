@@ -1,19 +1,29 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'app_profiles/css.css' %}">
 </head>
-<body>
-    <h1>Добро пожаловать {{ user.profile.first_name }}</h1>
-    <p>Ваш баланс составляет: {{ user.profile.balance }} рублей</p>
-    <p>Ваш статус: {{ user.profile.status }}</p>
-    <p>Пополнить баланс</p>
-    <form action="{% url 'top_up' %}" method="post">
-        {% csrf_token %}
-        <p><input type="text" name="count"/></p>
-        <button type="submit">Пополнить</button>
-        <p><a href="{% url 'product-list' %}">Перейти на страницу магазина</a></p>
-    </form>
+<body style="background-color: antiquewhite">
+<div class="personal-acc-container">
+    <div style="text-align: center">
+        <h1 class="card-title-text-center">Добро пожаловать, {{ user.profile.first_name }}!</h1>
+    </div>
+    <div class="personal-acc-text">Ваш баланс составляет: {{ user.profile.balance }} рублей</div>
+    <div class="personal-acc-text">Ваш статус: {{ user.profile.status }}</div>
+    <div class="personal-acc-text">Пополнить баланс:</div>
+        <form class="personal-acc-form" action="{% url 'top_up' %}" method="post">
+            {% csrf_token %}
+            <input type="text" name="count">
+            <button type="submit">Пополнить</button>
+        </form>
+
+
+    <div style="margin: 20px">
+        <a href="{% url 'product-list' %}">Перейти на страницу магазина</a>
+    </div>
+</div>
 </body>
 </html>

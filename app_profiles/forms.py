@@ -13,5 +13,5 @@ class UserRegisterForm(UserCreationForm):
         fields = ['username', 'password1', 'password2', 'first_name', 'last_name', 'date_of_birthday']
 
 class AuthForm(forms.Form):
-    username = forms.CharField(max_length=20)
-    password = forms.CharField(strip=False, widget=forms.PasswordInput())
+    username = forms.CharField(max_length=20, label='Логин')
+    password = forms.CharField(strip=False, widget=forms.PasswordInput(), label='Пароль')
