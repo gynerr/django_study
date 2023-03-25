@@ -13,8 +13,6 @@ from django.db.models import F
 
 from app_profiles.utils import buy_select_product
 
-now()
-
 
 def RegisterView(request):
     if request.method == 'POST':
@@ -76,4 +74,3 @@ def AuthView(request):
             return HttpResponse('Проверьте правильность заполнения формы')
     form = AuthForm()
     return render(request, 'app_profiles/auth_page.html', {'form': form})
-

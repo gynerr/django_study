@@ -1,2 +1,8 @@
 venv
+.idea
 db.sqlite3
+.env
+/Products.json
+/Profile.json
+/Shop.json
+/Check.json
